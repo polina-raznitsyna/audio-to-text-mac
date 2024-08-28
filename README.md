@@ -45,6 +45,10 @@ This repository contains two Python scripts designed for recording audio and tra
     brew install ffmpeg
     ```
 
+4. In both Python scipts change path to your downloads directory `DOWNLOADS_DIR = "/Users/polina_raznisyna/Downloads"`
+
+5. In `api_whisper.py` script replace `API_KEY` with your OpenAI API key.
+
 ## Usage
 
 ### 1. Local Whisper Model (`local_whisper.py`)
@@ -61,8 +65,7 @@ This script uses the local Whisper model.
 - Press the same shortcut to stop recording and start transcription.
 - The transcribed text will be copied to the clipboard.
 - Script keeps working until you stop it with `Control + C`, you can record and transcribe audio as many times as you want while script is running.
-
-
+/n
 - Alternalively, you can start the script with tag --file. The script will transcribe file, copy transcibed text to the clipboard and stop running:
     ```bash
     python local_whisper.py --model medium --file path/to/your/file.wav
@@ -79,13 +82,10 @@ This script uses OpenAI's Whisper API. It requires internet connection and OpenA
 
 #### How to Use
 
-- Replace `API_KEY` in the script with your OpenAI API key.
 - Run the script:
     ```bash
     python api_whisper.py
     ```
-
-
 - All functionality is the same as in the first script.
 - Model tags are different (only whisper-1 is currently available).
 
