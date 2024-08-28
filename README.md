@@ -70,6 +70,7 @@ This script uses the local Whisper model.
     ```bash
     python local_whisper.py --model medium --file path/to/your/file.wav
     ```
+- The following input file types are supported: mp3, mp4, mpeg, mpga, m4a, wav.
 - If file is inside Downloads folder on Mac, you can simply add filename after --file tag:
    ```bash
     python local_whisper.py --model medium --file file.wav
@@ -88,6 +89,7 @@ This script uses OpenAI's Whisper API. It requires internet connection and OpenA
     ```
 - All functionality is the same as in the first script.
 - Model tags are different (only whisper-1 is currently available).
+- Audio recording and file uploads are limited to 25 MB and the following input file types are supported: mp3, mp4, mpeg, mpga, m4a, wav.
 
 ## Differences Between the Two Versions
 
