@@ -31,7 +31,7 @@ This repository contains two Python scripts designed for recording audio and tra
 
 1. Clone the repository:
     ```bash
-    https://github.com/polina-raznitsyna/audio-to-text-mac.git
+    git clone https://github.com/polina-raznitsyna/audio-to-text-mac.git
     cd audio-to-text-mac
     ```
 
