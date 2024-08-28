@@ -49,7 +49,7 @@ This repository contains two Python scripts designed for recording audio and tra
 
 ### 1. Local Whisper Model (`local_whisper.py`)
 
-This script records audio and transcribes it using the local Whisper model.
+This script uses the local Whisper model.
 
 #### How to Use
 
@@ -61,6 +61,7 @@ This script records audio and transcribes it using the local Whisper model.
 - Press the same shortcut to stop recording and start transcription.
 - The transcribed text will be copied to the clipboard.
 - Script keeps working until you stop it with `Control + C`, you can record and transcribe audio as many times as you want while script is running.
+
 
 - Alternalively, you can start the script with tag --file. The script will transcribe file, copy transcibed text to the clipboard and stop running:
     ```bash
@@ -74,7 +75,7 @@ This script records audio and transcribes it using the local Whisper model.
 
 ### 2. OpenAI Whisper API (`api_whisper.py`)
 
-This script uses OpenAI's Whisper API for transcription. It requires internet connection and OpenAI API KEY with positive balance. Note that you will be charged at [current OpenAI API rates](https://openai.com/api/pricing/).
+This script uses OpenAI's Whisper API. It requires internet connection and OpenAI API KEY with positive balance. Note that you will be charged at [current OpenAI API rates](https://openai.com/api/pricing/).
 
 #### How to Use
 
@@ -83,9 +84,10 @@ This script uses OpenAI's Whisper API for transcription. It requires internet co
     ```bash
     python api_whisper.py
     ```
+
+
 - All functionality is the same as in the first script.
-- The second script needs 
-- Model tags are different (only whisper-1 (which is powered by open source Whisper V2 model) is currently available)
+- Model tags are different (only whisper-1 is currently available).
 
 ## Differences Between the Two Versions
 
