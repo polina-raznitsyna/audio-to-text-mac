@@ -20,10 +20,12 @@ API_URL = "https://api.openai.com/v1/audio/transcriptions"
 # Set up the keyboard shortcut
 SHORTCUT = {keyboard.Key.cmd, keyboard.KeyCode.from_char('e')}
 
+# Updated audio settings
 CHUNK = 1024
 FORMAT = pyaudio.paInt16
 CHANNELS = 1
-RATE = 44100
+RATE = 21845  # New sample rate
+RECORD_SECONDS = 600  # 10 minutes in seconds
 WAVE_OUTPUT_FILENAME = "output.wav"
 DOWNLOADS_DIR = "/Users/polina_raznisyna/Downloads"
 
@@ -65,11 +67,20 @@ class AudioRecorder:
                                 frames_per_buffer=CHUNK)
 
             print("Recording started")
-            while self.recording:
+            for _ in range(0, int(RATE / CHUNK * RECORD_SECONDS)):
+                if not self.recording:
+                    break
                 data = stream.read(CHUNK, exception_on_overflow=False)
                 self.frames.append(data)
+                
+                # Update timer in menu bar
+                elapsed_time = int(time.time() - self.start_time)
+                minutes, seconds = divmod(elapsed_time, 60)
+                self.app.title = f"{minutes:02}:{seconds:02}"
 
-            print("Recording stopped")
+            print("Recording stopped (10 minutes limit reached)" if self.recording else "Recording stopped")
+            self.recording = False
+            self.app.title = ""  # Clear the timer from the menu bar
         except Exception as e:
             print(f"Error during recording: {e}")
         finally:
